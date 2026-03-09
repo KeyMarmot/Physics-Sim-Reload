@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Canvas Example</title>
+        <title>Physics Sim reload</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <canvas id="canvas" width="800" height="600"></canvas>
         <section id="inputs">
-            <p>Horizontal Acceleration</p>
-            <input type="text" id="hAccel">
-            <p>Verticle Acceleration</p>
-            <input type="text" id="vAccel">
-            <p>Horizontal Speed</p>
-            <input type="text" id="hSpeed">
-            <p>Vertical Speed</p>
-            <input type="text" id="vSpeed">
+            <p>Speed</p>
+            <input type="text" id="Speed">
             <p>Color</p>
             <input type="text" id="color">
             <p>Size</p>
@@ -23,8 +17,11 @@
             <input type="text" id="startingPosx">
             <p>Starting Position y</p>
             <input type="text" id="startingPosy">
+            <p>Starting Direction</p>
+            <input type="text" id="StartingDirection">
             <button id="AttChange">Change Attributes</button>
         </section>
-        <script src = 'index.js'></script>
+        <!--<script src = 'index.js'></script>-->
+        <script src = 'sim.js'></script>
     </body>
 </html>
