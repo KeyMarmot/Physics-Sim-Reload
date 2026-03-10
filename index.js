@@ -38,20 +38,23 @@ let circle = {
     direction: 7*Math.PI/4
 }
 
+let dxx = 10;
+let dyy = 10;
+
 function moveWithBounce(circle){
     //console.log(dy)
-    dx = circle.speed*Math.cos(circle.direction);
-    dy = circle.speed*Math.sin(circle.direction);
+    let dx = (circle.speed*Math.cos(circle.direction))*dxx;
+    let dy = (circle.speed*Math.sin(circle.direction))*dyy;
     circle.x += dx;
     circle.y += dy;
 
     //bounce rules
-    if(circle.x-circle.radius<0 || circle.x-circle.radius > canvas.width){
-        dx *= -1;
+    if(circle.x-circle.radius<0 || circle.x+circle.radius > canvas.width){
+        dxx *= -1;
     }
 
     if (circle.y-circle.radius < 0 || circle.y+circle.radius > canvas.height){
-        dy *= -1;
+        dyy *= -1;
     }
 }
 function changeAttributes(circle){
