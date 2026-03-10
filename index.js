@@ -38,25 +38,39 @@ let circle = {
     direction: 7*Math.PI/4
 }
 
-let dxx = 10;
-let dyy = 10;
 
 function moveWithBounce(circle){
-    //console.log(dy)
-    let dx = (circle.speed*Math.cos(circle.direction))*dxx;
-    let dy = (circle.speed*Math.sin(circle.direction))*dyy;
+    //movement
+    let dx = (circle.speed*Math.cos(circle.direction));
+    let dy = (circle.speed*Math.sin(circle.direction));
+    
+    if(circle.x-circle.radius+dx < 0 || circle.x+circle.radius+dx > canvas.width){
+        circle.direction += Math.PI/2;
+        if (circle.x-circle.radius+dx < 0){
+            circle.x = circle.radius;
+        }
+
+        if (circle.x-circle.radius+dx > canvas.width){
+            circle.x = canvas.width-circle.radius;
+        }
+    }
+
+    else if (circle.y-circle.radius+dy < 0 || circle.y+circle.radius+dy > canvas.height){
+        circle.direction += Math.PI/2;
+        if (circle.y-circle.radius+dy < 0){
+            circle.y = circle.radius;
+        }
+
+        if (circle.y-circle.radius+dy > canvas.height){
+            circle.y = canvas.height-circle.radius;
+        }
+    }
+
     circle.x += dx;
     circle.y += dy;
-
-    //bounce rules
-    if(circle.x-circle.radius<0 || circle.x+circle.radius > canvas.width){
-        dxx *= -1;
-    }
-
-    if (circle.y-circle.radius < 0 || circle.y+circle.radius > canvas.height){
-        dyy *= -1;
-    }
+    console.log(circle.direction);
 }
+
 function changeAttributes(circle){
     circle.radius = Number(size.value);
     if (size.value == ""){
